@@ -19,23 +19,18 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 
     List<Note> findByStatus(NoteStatus status);
 
-    List<Note> findByName(String name);
+    List<Note> findByNameContains(String name);
 
-    List<Note> findByDescription(String description);
-
-    List<Note> findByNameAndDescription(String name, String description);
+    List<Note> findByDescriptionContains(String description);
 
     List<Note> findByNameAndStatus(String name, NoteStatus status);
 
-    List<Note> findByNameAndStatusAndDescription(
-            String name,
-            NoteStatus status,
-            String description);
-
-    List<Note> findByUserAndDescription(User user, String description);
+    List<Note> findByStatusAndDescriptionContains(NoteStatus status, String description);
 
     List<Note> findByUserAndStatus(User user, NoteStatus status);
 
-    List<Note> findByUserAndName(User user, String name);
+    List<Note> findByUserAndNameContains(User user, String name);
+
+    List<Note> findByUserAndDescriptionContains(User user, String description);
 
 }

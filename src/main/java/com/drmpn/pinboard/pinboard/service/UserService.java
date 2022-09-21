@@ -25,15 +25,13 @@ public class UserService {
     }
     
     @Transactional
-    public UserDTO getUserById(Long userId) {
-        // TODO: error handlae
+    public UserDTO getUserById(Long userId) throws Exception {
         User user = userRepository.findById(userId).orElseThrow();
         return userMapper.toDto(user);
     }
 
     @Transactional
-    public UserDTO getUserByEmail(String email) {
-        // TODO: error handle
+    public UserDTO getUserByEmail(String email) throws Exception {
         User user = userRepository.findByEmail(email).orElseThrow();
         return userMapper.toDto(user);
     }

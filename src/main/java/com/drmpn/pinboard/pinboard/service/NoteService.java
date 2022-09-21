@@ -33,8 +33,7 @@ public class NoteService {
     }
 
     @Transactional
-    public NoteDTO findById(Long noteId) {
-        // TODO error handle
+    public NoteDTO findById(Long noteId) throws Exception {
         Note note = noteRepository.findById(noteId).orElseThrow();
         return noteMapper.toDto(note);
     }
